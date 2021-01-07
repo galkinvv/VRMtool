@@ -9,6 +9,7 @@ def malloc(iSize):
 
 
 ADL_Main_Memory_Alloc = MALLOCFUNC(malloc)
+assert ctypes.sizeof(ctypes.c_char_p) != 32, "Run with 32bit python version (64 bit would be possible with atiadlxx.dll, but lacks exeio)"
 ADL = ctypes.CDLL("atiadlxy.dll")
 
 ADL_OK = 0

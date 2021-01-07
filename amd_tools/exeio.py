@@ -1,7 +1,7 @@
 import ctypes
 import struct
 import os
-
+import pathlib
 
 def malloc(iSize):
     return ctypes.addressof(ctypes.create_string_buffer(iSize))
@@ -22,7 +22,7 @@ def malloc_mem(iSize):
 
 class exeio():
     def __init__(self):
-        self.iomap = ctypes.cdll.LoadLibrary("Exeio.dll")
+        self.iomap = ctypes.cdll.LoadLibrary(str(pathlib.Path(__file__).parent.parent/"Exeio.dll"))
 
         ret = self.iomap.VGAROMMappingForULPS()
         print(ret)
